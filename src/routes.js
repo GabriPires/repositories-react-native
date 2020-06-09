@@ -12,7 +12,7 @@ const Routes = () => {
     headerTitleAlign: 'center',
     headerBackTitleVisible: false,
     headerStyle: {
-      backgroundColor: '#549C83',
+      backgroundColor: '#8D5524',
     },
     headerTintColor: '#fff',
   };
@@ -21,12 +21,12 @@ const Routes = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Olá mundo"
+          name="Usuários"
           component={Main}
           options={routesOptions}
         />
         <Stack.Screen
-          name="Usuários"
+          name="Usuários2"
           component={User}
           options={routesOptions}
         />
