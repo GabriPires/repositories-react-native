@@ -3,14 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 
 // import { Container } from './styles';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native</Text>
-    </View>
-  );
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -24,3 +16,11 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcome}>Welcome to React Native</Text>
+    </View>
+  );
+}
