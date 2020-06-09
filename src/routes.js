@@ -12,7 +12,7 @@ const Routes = () => {
     headerTitleAlign: 'center',
     headerBackTitleVisible: false,
     headerStyle: {
-      backgroundColor: '#7159c1',
+      backgroundColor: '#549C83',
     },
     headerTintColor: '#fff',
   };
