@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ActivityIndicator } from 'react-native';
 import api from '../../services/api';
 
 import {
@@ -25,6 +26,7 @@ export default class User extends Component {
 
   state = {
     stars: [],
+    loading: false,
   };
 
   async componentDidMount() {
@@ -37,13 +39,14 @@ export default class User extends Component {
       title: user.name,
     });
 
+    this.setState({ loading: true });
     const response = await api.get(`/users/${user.login}/starred`);
-    this.setState({ stars: response.data });
+    this.setState({ stars: response.data, loading: false });
   }
 
   render() {
     const { route } = this.props;
-    const { stars } = this.state;
+    const { stars, loading } = this.state;
 
     const { user } = route.params;
 
@@ -54,19 +57,23 @@ export default class User extends Component {
           <Name>{user.name}</Name>
           <Bio>{user.bio}</Bio>
         </Header>
-        <Stars
-          data={stars}
-          keyExtractor={(star) => String(star.id)}
-          renderItem={({ item }) => (
-            <Starred>
-              <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
-              <Info>
-                <Title>{item.name}</Title>
-                <Author>{item.owner.login}</Author>
-              </Info>
-            </Starred>
-          )}
-        />
+        {loading ? (
+          <ActivityIndicator color="#517CAF" />
+        ) : (
+          <Stars
+            data={stars}
+            keyExtractor={(star) => String(star.id)}
+            renderItem={({ item }) => (
+              <Starred>
+                <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
+                <Info>
+                  <Title>{item.name}</Title>
+                  <Author>{item.owner.login}</Author>
+                </Info>
+              </Starred>
+            )}
+          />
+        )}
       </Container>
     );
   }
