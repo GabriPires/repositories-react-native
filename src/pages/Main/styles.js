@@ -10,7 +10,7 @@ export const Form = styled.View`
   flex-direction: row;
   padding-bottom: 20px;
   border-bottom-width: 1px;
-  border-color: #ddd;
+  border-color: #eee;
 `;
 
 export const Input = styled.TextInput.attrs({
@@ -77,7 +77,7 @@ export const ProfileButton = styled(RectButton)`
   justify-content: center;
   align-items: center;
   height: 36px;
-  opacity: ${props => (props.loading ? 0.7 : 1)};
+  opacity: ${(props) => (props.loading ? 0.7 : 1)};
 `;
 
 export const ProfileButtonText = styled.Text`
