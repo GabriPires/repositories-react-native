@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
 import api from '../../services/api';
 
-// import { Container } from './styles';
+import { Container, Header, Avatar, Name, Bio } from './styles';
 
 export default class User extends Component {
   static propTypes = {
@@ -31,8 +30,19 @@ export default class User extends Component {
   }
 
   render() {
+    const { route } = this.props;
     const { start } = this.state;
 
-    return <View />;
+    const { user } = route.params;
+
+    return (
+      <Container>
+        <Header>
+          <Avatar source={{ uri: user.avatar }} />
+          <Name>{user.name}</Name>
+          <Bio>{user.bio}</Bio>
+        </Header>
+      </Container>
+    );
   }
 }
