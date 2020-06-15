@@ -25,11 +25,7 @@ const Routes = () => {
           component={Main}
           options={routesOptions}
         />
-        <Stack.Screen
-          name="Usuários2"
-          component={User}
-          options={routesOptions}
-        />
+        <Stack.Screen name="User" component={User} options={routesOptions} />
       </Stack.Navigator>
     </NavigationContainer>
   );
